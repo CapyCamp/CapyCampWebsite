@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: "CapyCamp",
     images: [
       {
-        url: "/og-image.png",
+        url: "/branding/og-image.png",
         width: 1200,
         height: 630,
         alt: "CapyCamp",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: "CapyCamp — The Scout Universe",
     description: "Join 3,333 Scouts in CapyCamp. Premium NFT brand with real-world experiences.",
     creator: "@capycampxyz",
-    images: ["/og-image.png"],
+    images: ["/branding/og-image.png"],
   },
   robots: {
     index: true,
