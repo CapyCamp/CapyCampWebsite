@@ -20,7 +20,7 @@ export default function HomePage() {
       <SiteHeader />
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="relative min-h-[85vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black/30 via-black/20 to-black/30">
+        <section className="relative min-h-[70vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black/30 via-black/20 to-black/30">
           <div className="max-w-5xl w-full text-center space-y-6 sm:space-y-8 py-16 sm:py-20">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-primary/20 bg-primary/5">

@@ -172,15 +172,7 @@
   }
 
   html {
-    background: url('/mysteryforest.png') fixed center / cover no-repeat;
-    background-attachment: fixed;
-  }
-
-  @media (max-width: 640px) {
-    html {
-      background: url('/mysteryforest.png') center top / 100% auto no-repeat;
-      background-attachment: fixed;
-    }
+    background: none;
   }
 
   body {
