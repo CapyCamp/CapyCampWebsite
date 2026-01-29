@@ -110,9 +110,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${diloWorldComic.variable} ${geistMono.variable} bg-[url('/mysteryforest.png')] bg-cover bg-top bg-fixed sm:bg-center`}
+      className={`${diloWorldComic.variable} ${geistMono.variable}`}
     >
       <body className="font-sans antialiased text-outline">
+        <div className="pointer-events-none fixed inset-0 -z-10 bg-[url('/mysteryforest.png')] bg-cover bg-center" />
         <NextAbstractWalletProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} storageKey="theme-mode">
             <div className="fireflies" aria-hidden="true">
