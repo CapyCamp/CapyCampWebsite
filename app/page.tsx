@@ -20,39 +20,41 @@ export default function HomePage() {
       <SiteHeader />
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black/30 via-black/20 to-black/30">
-          <div className="max-w-5xl w-full text-center space-y-8 py-20">
+        <section className="relative min-h-[85vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black/30 via-black/20 to-black/30">
+          <div className="max-w-5xl w-full text-center space-y-6 sm:space-y-8 py-16 sm:py-20">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-primary/20 bg-primary/5">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Abstract Chain • 3,333 Scouts</span>
+              <span className="text-xs sm:text-sm font-medium text-primary">
+                Abstract Chain • 3,333 Scouts
+              </span>
             </div>
 
             {/* Title */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight text-outline-strong">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight text-outline-strong">
               {heroSection.title}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-outline-strong">
+            <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-outline-strong">
               {heroSection.subtitle}
             </p>
 
             {/* Trust Row */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 py-8 px-4 rounded-xl bg-muted/30 border border-muted">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 py-6 sm:py-8 px-4 rounded-xl bg-muted/30 border border-muted max-w-sm sm:max-w-none mx-auto">
               <div className="text-center">
                 <div className="text-xs text-muted-foreground uppercase tracking-wide">Chain</div>
-                <div className="text-lg font-semibold text-foreground">{trustRow.chain}</div>
+                <div className="text-base sm:text-lg font-semibold text-foreground">{trustRow.chain}</div>
               </div>
               <div className="hidden sm:block w-px h-8 bg-border" />
               <div className="text-center">
                 <div className="text-xs text-muted-foreground uppercase tracking-wide">Supply</div>
-                <div className="text-lg font-semibold text-foreground">{trustRow.supply}</div>
+                <div className="text-base sm:text-lg font-semibold text-foreground">{trustRow.supply}</div>
               </div>
               <div className="hidden sm:block w-px h-8 bg-border" />
               <div className="text-center">
                 <div className="text-xs text-muted-foreground uppercase tracking-wide">Status</div>
-                <div className="text-lg font-semibold text-accent">{trustRow.status}</div>
+                <div className="text-base sm:text-lg font-semibold text-accent">{trustRow.status}</div>
               </div>
             </div>
 

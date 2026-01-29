@@ -178,7 +178,7 @@
 
   @media (max-width: 640px) {
     html {
-      background: url('/mysteryforest.png') top center / contain no-repeat;
+      background: url('/mysteryforest.png') center top / cover no-repeat;
       background-attachment: scroll;
     }
   }
