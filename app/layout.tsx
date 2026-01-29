@@ -32,8 +32,8 @@ const diloWorldComic = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://capycamp.xyz'),
   title: {
-    default: "CapyCamp — The Scout Universe",
-    template: "%s | CapyCamp",
+    default: "CapyCampOfficial",
+    template: "%s | CapyCampOfficial",
   },
   description:
     "Join 3,333 Scouts in CapyCamp on Abstract. A premium Web3 brand with hilarious lore, real-world glamping experiences, and onchain identity.",
