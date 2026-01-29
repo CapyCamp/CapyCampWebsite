@@ -176,6 +176,13 @@
     background-attachment: fixed;
   }
 
+  @media (max-width: 640px) {
+    html {
+      background: url('/mysteryforest.png') top center / contain no-repeat;
+      background-attachment: scroll;
+    }
+  }
+
   body {
     @apply bg-background text-foreground; /* Updated to include bg-background */
     background: transparent; /* Preserve existing background if it's meant to layer */
