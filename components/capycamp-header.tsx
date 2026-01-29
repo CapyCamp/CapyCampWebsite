@@ -41,9 +41,11 @@ export default function SiteHeader() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group pl-2">
-          <span className="font-space-grotesk font-bold text-lg hidden sm:inline text-secondary drop-shadow-[0_0_14px_rgba(255,214,74,0.75)] group-hover:text-secondary/90 transition-colors">
-            CapyCamp
-          </span>
+          <img
+            src="/branding/BWLOGO.png"
+            alt="CapyCamp"
+            className="h-7 w-auto sm:h-8"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -97,20 +99,6 @@ export default function SiteHeader() {
             </DropdownMenu>
           )}
           <ConnectWalletButton className="hidden sm:inline-flex" />
-          <Button
-            asChild
-            className="hidden sm:inline-flex bg-muted text-muted-foreground border border-muted cursor-not-allowed opacity-60 pointer-events-none"
-          >
-            <a
-              href={siteConfig.links.discord}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-disabled="true"
-              tabIndex={-1}
-            >
-              Join Discord
-            </a>
-          </Button>
 
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -135,20 +123,6 @@ export default function SiteHeader() {
                   </Link>
                 ))}
                 <ConnectWalletButton className="w-full" />
-                <Button
-                  asChild
-                  className="w-full bg-muted text-muted-foreground border border-muted cursor-not-allowed opacity-60 pointer-events-none mt-4"
-                >
-                  <a
-                    href={siteConfig.links.discord}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-disabled="true"
-                    tabIndex={-1}
-                  >
-                    Join Discord
-                  </a>
-                </Button>
               </div>
             </SheetContent>
           </Sheet>

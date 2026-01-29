@@ -15,6 +15,7 @@ export const siteConfig = {
 
 export const navConfig = [
   { label: "Home", href: "/" },
+  { label: "Brand", href: "/brand" },
   { label: "Story", href: "/story" },
   { label: "Mint", href: "/mint" },
   { label: "Roadmap", href: "/roadmap" },
