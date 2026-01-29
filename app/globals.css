@@ -179,6 +179,7 @@
   body {
     @apply bg-background text-foreground; /* Updated to include bg-background */
     background: transparent; /* Preserve existing background if it's meant to layer */
+    @apply overflow-x-hidden;
   }
 }
 

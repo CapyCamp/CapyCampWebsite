@@ -268,7 +268,7 @@ export default function PortalPage() {
         src="/comingsoon.png"
         alt=""
         aria-hidden="true"
-        className="fixed bottom-0 left-1/2 z-10 w-56 -translate-x-1/2 pointer-events-none select-none md:w-72"
+        className="fixed bottom-0 left-1/2 z-10 w-40 -translate-x-1/2 pointer-events-none select-none sm:w-56 md:w-72"
       />
       <SiteFooter />
     </div>

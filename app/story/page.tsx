@@ -406,7 +406,7 @@ It's still burning.`,
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6 text-muted-foreground whitespace-pre-line">
-                  <Card className="p-6 bg-white/5 border-white/10 backdrop-blur-md">
+                  <Card className="p-4 sm:p-6 bg-white/5 border-white/10 backdrop-blur-md">
                     {chapter.content}
                   </Card>
                 </AccordionContent>
