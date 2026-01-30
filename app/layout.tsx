@@ -112,6 +112,14 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${diloWorldComic.variable} ${geistMono.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="font-sans antialiased text-outline">
         <div className="pointer-events-none fixed inset-0 -z-10 bg-[url('/mysteryforest.png')] bg-cover bg-center" />
         <NextAbstractWalletProvider>

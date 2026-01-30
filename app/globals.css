@@ -126,7 +126,7 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-dilo), "Dilo World Comic", "Dilo World", system-ui, sans-serif;
+  --font-sans: "Comic Neue", var(--font-dilo), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), "Geist Mono", "Geist Mono Fallback", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -179,6 +179,18 @@
     @apply bg-background text-foreground tracking-[0.02em]; /* Updated to include bg-background */
     background: transparent; /* Preserve existing background if it's meant to layer */
     @apply overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  nav,
+  button {
+    font-family: var(--font-dilo), system-ui, sans-serif;
   }
 }
 
