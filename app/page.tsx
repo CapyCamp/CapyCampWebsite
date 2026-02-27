@@ -36,12 +36,12 @@ export default function HomePage() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-outline-strong">
+            <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-outline-strong hero-subtitle">
               {heroSection.subtitle}
             </p>
 
             {/* Trust Row */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 py-6 sm:py-8 px-4 rounded-xl bg-muted/30 border border-muted max-w-sm sm:max-w-none mx-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 py-6 sm:py-8 px-4 rounded-xl bg-white/10 border border-white/15 backdrop-blur-md max-w-sm sm:max-w-none mx-auto">
               <div className="text-center">
                 <div className="text-xs text-muted-foreground uppercase tracking-wide">Chain</div>
                 <div className="text-base sm:text-lg font-semibold text-foreground">{trustRow.chain}</div>
@@ -54,7 +54,7 @@ export default function HomePage() {
               <div className="hidden sm:block w-px h-8 bg-border" />
               <div className="text-center">
                 <div className="text-xs text-muted-foreground uppercase tracking-wide">Status</div>
-                <div className="text-base sm:text-lg font-semibold text-accent">{trustRow.status}</div>
+                <div className="text-base sm:text-lg font-semibold text-accent status-text">{trustRow.status}</div>
               </div>
             </div>
 

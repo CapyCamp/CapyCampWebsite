@@ -121,7 +121,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased text-outline">
-        <div className="pointer-events-none fixed inset-0 -z-10 bg-[url('/mysteryforest.png')] bg-cover bg-center" />
+        <div className="pointer-events-none fixed inset-0 -z-10 bg-[url('/capy-forest-bg.png')] bg-cover bg-center" />
         <NextAbstractWalletProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} storageKey="theme-mode">
             <div className="fireflies" aria-hidden="true">

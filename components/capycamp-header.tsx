@@ -55,7 +55,7 @@ export default function SiteHeader() {
               key={item.href}
               href={item.href}
               onClick={playClickSound}
-              className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors"
+              className="px-4 py-2 text-sm font-medium text-accent hover:text-accent/90 hover:bg-muted rounded-lg transition-colors drop-shadow-[0_1px_0_rgba(0,0,0,0.9)]"
             >
               {item.label}
             </Link>
@@ -117,7 +117,7 @@ export default function SiteHeader() {
                       playClickSound()
                       setIsOpen(false)
                     }}
-                    className="px-4 py-2 text-lg font-medium text-foreground hover:text-primary transition-colors"
+                    className="px-4 py-2 text-lg font-medium text-accent hover:text-accent/90 transition-colors drop-shadow-[0_1px_0_rgba(0,0,0,0.9)]"
                   >
                     {item.label}
                   </Link>
