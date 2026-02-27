@@ -176,8 +176,9 @@
   }
 
   body {
-    @apply bg-background text-foreground tracking-[0.02em]; /* Updated to include bg-background */
+    @apply text-foreground tracking-[0.02em]; /* Updated to include bg-background */
     background: transparent; /* Preserve existing background if it's meant to layer */
+    background-color: transparent;
     @apply overflow-x-hidden;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;

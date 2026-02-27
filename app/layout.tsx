@@ -120,23 +120,25 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans antialiased text-outline">
-        <div className="pointer-events-none fixed inset-0 -z-10 bg-[url('/capy-forest-bg.png')] bg-cover bg-center" />
-        <NextAbstractWalletProvider>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} storageKey="theme-mode">
-            <div className="fireflies" aria-hidden="true">
-              {Array.from({ length: 14 }).map((_, idx) => (
-                <span key={`firefly-${idx}`} />
-              ))}
-            </div>
-            <TipsGuide />
-            <CursorGlow />
-            <BackgroundAudio />
-            {children}
-            <Toaster />
-          </ThemeProvider>
-        </NextAbstractWalletProvider>
-        <Analytics />
+      <body className="font-sans antialiased text-outline relative">
+        <div className="pointer-events-none fixed inset-0 z-0 bg-[url('/capy-forest-bg.png')] bg-cover bg-center" />
+        <div className="relative z-10">
+          <NextAbstractWalletProvider>
+            <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} storageKey="theme-mode">
+              <div className="fireflies" aria-hidden="true">
+                {Array.from({ length: 14 }).map((_, idx) => (
+                  <span key={`firefly-${idx}`} />
+                ))}
+              </div>
+              <TipsGuide />
+              <CursorGlow />
+              <BackgroundAudio />
+              {children}
+              <Toaster />
+            </ThemeProvider>
+          </NextAbstractWalletProvider>
+          <Analytics />
+        </div>
       </body>
     </html>
   )
