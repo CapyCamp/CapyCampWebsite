@@ -1,11 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist_Mono } from "next/font/google"
-import localFont from "next/font/local"
+import { Geist_Mono, Fredoka, DM_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
-import BackgroundAudio from "@/components/background-audio"
-import { CursorGlow } from "@/components/cursor-glow"
 import TipsGuide from "@/components/tips-guide"
 import { NextAbstractWalletProvider } from "@/components/agw-provider"
 import { Toaster } from "@/components/ui/sonner"
@@ -17,15 +14,14 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   display: 'swap',
 })
-const diloWorldComic = localFont({
-  src: [
-    {
-      path: "../public/fonts/DiloWorld.ttf",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-dilo",
+const fredoka = Fredoka({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+})
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
   display: "swap",
 })
 
@@ -62,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CapyCamp — The Scout Universe",
     description: "Join 3,333 Scouts in CapyCamp. Premium NFT brand with real-world experiences.",
-    creator: "@capycampxyz",
+    creator: "@CapyCamp",
     images: ["/branding/og-image.png"],
   },
   robots: {
@@ -110,29 +106,25 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${diloWorldComic.variable} ${geistMono.variable}`}
+      className={`${fredoka.variable} ${dmSans.variable} ${geistMono.variable}`}
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
+      <head />
+      <body className="font-sans antialiased relative">
+        {/* Static background image (fixed, full bleed) */}
+        <div
+          className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url(/capyforest.png)" }}
+          aria-hidden="true"
         />
-      </head>
-      <body className="font-sans antialiased text-outline relative">
-        <div className="pointer-events-none fixed inset-0 z-0 bg-[url('/capy-forest-bg.png')] bg-cover bg-center" />
+        {/* Frosted glass overlay over static background */}
+        <div
+          className="fixed inset-0 z-0 bg-white/30 backdrop-blur"
+          aria-hidden="true"
+        />
         <div className="relative z-10">
           <NextAbstractWalletProvider>
             <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} storageKey="theme-mode">
-              <div className="fireflies" aria-hidden="true">
-                {Array.from({ length: 14 }).map((_, idx) => (
-                  <span key={`firefly-${idx}`} />
-                ))}
-              </div>
               <TipsGuide />
-              <CursorGlow />
-              <BackgroundAudio />
               {children}
               <Toaster />
             </ThemeProvider>

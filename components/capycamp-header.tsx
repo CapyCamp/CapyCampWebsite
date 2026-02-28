@@ -3,9 +3,8 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, X } from "lucide-react"
-import { navConfig, siteConfig } from "@/lib/capycamp-data"
+import { Menu } from "lucide-react"
+import { navConfig } from "@/lib/capycamp-data"
 import { ConnectWalletButton } from "@/components/connect-wallet-button"
 import { AbstractProfile } from "@/components/abstract-profile"
 import { useAbstractProfile } from "@/hooks/use-abstract-profile"
@@ -24,45 +23,22 @@ export default function SiteHeader() {
   const { address, isConnected } = useAccount()
   const { data: profile } = useAbstractProfile()
 
-  const playClickSound = () => {
-    const audio = new Audio("/woodcreak.mp3")
-    audio.currentTime = 0
-    audio.play().catch(() => {
-      // Ignore if autoplay is blocked
-    })
-    window.setTimeout(() => {
-      audio.pause()
-      audio.currentTime = 0
-    }, 2500)
-  }
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-xl border-b border-white/20 shadow-sm">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group pl-2">
+        <Link href="/" className="flex items-center gap-3">
           <img
             src="/branding/BWLOGO.png"
             alt="CapyCamp"
-            className="h-7 w-auto sm:h-8"
+            className="h-6 w-auto sm:h-7"
           />
+          <span className="text-xs uppercase tracking-[0.35em] text-foreground/70">
+            CapyCamp
+          </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1">
-          {navConfig.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={playClickSound}
-              className="px-4 py-2 text-sm font-medium text-accent hover:text-accent/90 hover:bg-muted rounded-lg transition-colors drop-shadow-[0_1px_0_rgba(0,0,0,0.9)]"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-
-        {/* Desktop CTA + Mobile Menu */}
+        {/* Wallet + Menu */}
         <div className="relative flex items-center gap-2">
           {isConnected && (
             <DropdownMenu>
@@ -99,33 +75,27 @@ export default function SiteHeader() {
             </DropdownMenu>
           )}
           <ConnectWalletButton className="hidden sm:inline-flex" />
-
-          {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
+          <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Open menu"
+              >
                 <Menu className="w-5 h-5" />
               </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-full">
-              <div className="flex flex-col gap-4 mt-8">
-                {navConfig.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => {
-                      playClickSound()
-                      setIsOpen(false)
-                    }}
-                    className="px-4 py-2 text-lg font-medium text-accent hover:text-accent/90 transition-colors drop-shadow-[0_1px_0_rgba(0,0,0,0.9)]"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <ConnectWalletButton className="w-full" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56 min-w-56">
+              {navConfig.map((item) => (
+                <DropdownMenuItem key={item.href} asChild>
+                  <Link href={item.href}>{item.label}</Link>
+                </DropdownMenuItem>
+              ))}
+              <div className="md:hidden border-t border-border mt-2 pt-2">
+                <ConnectWalletButton className="w-full justify-center" />
               </div>
-            </SheetContent>
-          </Sheet>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </nav>
     </header>

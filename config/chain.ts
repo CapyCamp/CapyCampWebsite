@@ -1,6 +1,3 @@
-import { abstractTestnet } from "viem/chains"
+import { abstract } from "viem/chains"
 
-export const chain =
-  process.env.NODE_ENV === "development"
-    ? abstractTestnet
-    : abstractTestnet
+export const chain = abstract

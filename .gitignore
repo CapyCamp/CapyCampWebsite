@@ -22,6 +22,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# dev-only WL exports
+.wl/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

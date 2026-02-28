@@ -1,5 +1,5 @@
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
+import SiteHeader from "@/components/capycamp-header.no-ssr"
+import SiteFooter from "@/components/capycamp-footer.no-ssr"
 
 export default function PublicLayout({
   children,
@@ -7,11 +7,11 @@ export default function PublicLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="relative min-h-screen overflow-hidden scanlines">
+    <main className="relative min-h-screen overflow-hidden pt-20">
       <div className="relative z-10">
-        <Header />
+        <SiteHeader />
         {children}
-        <Footer />
+        <SiteFooter />
       </div>
     </main>
   );

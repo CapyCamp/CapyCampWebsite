@@ -11,19 +11,29 @@ function getSessionPassword(): string {
   const password = process.env.IRON_SESSION_PASSWORD
 
   if (!password) {
+    // In local dev, a missing session password causes the SIWE endpoints to 500 repeatedly.
+    // We fall back to a stable dev-only password so the app remains usable without env setup.
+    if (process.env.NODE_ENV !== "production") {
+      return "dev-only-iron-session-password-change-me-please-32+chars"
+    }
+
     throw new SiweConfigurationError(
       "IRON_SESSION_PASSWORD environment variable is required for SIWE authentication.\n\n" +
         "This password is used to encrypt session data and must be cryptographically secure.\n\n" +
         "To fix this:\n" +
         "1. Generate a secure password: openssl rand -base64 32\n" +
         "2. Add it to your .env.local file:\n" +
-        ' IRON_SESSION_PASSWORD="your_generated_password_here"\n' +
+        ' IRON_SESSION_PASSWORD=\"your_generated_password_here\"\n' +
         "3. Restart your application\n\n" +
         "SECURITY WARNING: Never use a weak or default password in production!"
     )
   }
 
   if (password.length < 32) {
+    if (process.env.NODE_ENV !== "production") {
+      return password.padEnd(32, "_")
+    }
+
     throw new SiweConfigurationError(
       "IRON_SESSION_PASSWORD must be at least 32 characters long for security.\n" +
         "Generate a new secure password using: openssl rand -base64 32"

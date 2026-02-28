@@ -4,42 +4,42 @@
 
 /* Premium Web3 brand palette for CapyCamp */
 :root {
-  /* Backgrounds - Adjusted for dark theme over forest background */
-  --background: oklch(0.08 0.01 260 / 0);
-  --foreground: oklch(0.95 0.01 260);
+  /* Backgrounds */
+  --background: #f6f2ea;
+  --foreground: #1e1e1e;
 
   /* Cards - Semi-transparent dark with glass effect */
-  --card: oklch(0.08 0.01 260 / 0.4);
-  --card-foreground: oklch(0.95 0.01 260);
+  --card: #ffffff;
+  --card-foreground: #111111;
 
   /* Popovers */
-  --popover: oklch(0.08 0.01 260 / 0.5);
-  --popover-foreground: oklch(0.95 0.01 260);
+  --popover: #ffffff;
+  --popover-foreground: #111111;
 
   /* Primary - Bright teal */
-  --primary: oklch(0.70 0.16 220);
-  --primary-foreground: oklch(0.98 0 0);
+  --primary: #f08c3a;
+  --primary-foreground: #ffffff;
 
   /* Secondary - Warm tan */
-  --secondary: oklch(0.80 0.12 65);
-  --secondary-foreground: oklch(0.98 0 0);
+  --secondary: #efe6dc;
+  --secondary-foreground: #1e1e1e;
 
   /* Muted - Dark semi-transparent */
-  --muted: oklch(0.15 0.01 260 / 0.3);
-  --muted-foreground: oklch(0.75 0.01 260);
+  --muted: #e7e1d9;
+  --muted-foreground: #4b4b4b;
 
   /* Accent - Bright coral/yellow for CTAs */
-  --accent: oklch(0.72 0.18 35);
-  --accent-foreground: oklch(0.08 0.01 260);
+  --accent: #f08c3a;
+  --accent-foreground: #1e1e1e;
 
   /* Destructive */
   --destructive: oklch(0.65 0.18 25);
-  --destructive-foreground: oklch(0.08 0.01 260);
+  --destructive-foreground: #ffffff;
 
   /* Borders & Input */
-  --border: oklch(0.25 0.02 220 / 0.3);
-  --input: oklch(0.12 0.01 260 / 0.4);
-  --ring: oklch(0.70 0.16 220);
+  --border: #e2d6c7;
+  --input: #f8f2ea;
+  --ring: #f08c3a;
 
   /* Chart colors */
   --chart-1: oklch(0.70 0.16 220);
@@ -68,41 +68,41 @@
 
 .dark {
   /* Dark backgrounds */
-  --background: oklch(0.08 0.01 260 / 0);
-  --foreground: oklch(0.95 0.01 260);
+  --background: #f6f2ea;
+  --foreground: #1e1e1e;
 
   /* Cards - Semi-transparent dark */
-  --card: oklch(0.08 0.01 260 / 0.4);
-  --card-foreground: oklch(0.95 0.01 260);
+  --card: #ffffff;
+  --card-foreground: #111111;
 
   /* Popovers */
-  --popover: oklch(0.08 0.01 260 / 0.5);
-  --popover-foreground: oklch(0.95 0.01 260);
+  --popover: #ffffff;
+  --popover-foreground: #111111;
 
   /* Primary - Bright teal */
-  --primary: oklch(0.70 0.16 220);
-  --primary-foreground: oklch(0.98 0 0);
+  --primary: #f08c3a;
+  --primary-foreground: #ffffff;
 
   /* Secondary - Warm tan */
-  --secondary: oklch(0.80 0.12 65);
-  --secondary-foreground: oklch(0.98 0 0);
+  --secondary: #efe6dc;
+  --secondary-foreground: #1e1e1e;
 
   /* Muted - Dark semi-transparent */
-  --muted: oklch(0.15 0.01 260 / 0.3);
-  --muted-foreground: oklch(0.75 0.01 260);
+  --muted: #e7e1d9;
+  --muted-foreground: #4b4b4b;
 
   /* Accent - Bright coral */
-  --accent: oklch(0.72 0.18 35);
-  --accent-foreground: oklch(0.08 0.01 260);
+  --accent: #f08c3a;
+  --accent-foreground: #1e1e1e;
 
   /* Destructive */
   --destructive: oklch(0.65 0.18 25);
-  --destructive-foreground: oklch(0.08 0.01 260);
+  --destructive-foreground: #ffffff;
 
   /* Borders & Input */
-  --border: oklch(0.25 0.02 220 / 0.3);
-  --input: oklch(0.12 0.01 260 / 0.4);
-  --ring: oklch(0.70 0.16 220);
+  --border: #e2d6c7;
+  --input: #f8f2ea;
+  --ring: #f08c3a;
 
   /* Chart colors */
   --chart-1: oklch(0.70 0.16 220);
@@ -126,7 +126,8 @@
 }
 
 @theme inline {
-  --font-sans: "Comic Neue", var(--font-dilo), system-ui, sans-serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-display: var(--font-display), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), "Geist Mono", "Geist Mono Fallback", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -172,98 +173,110 @@
   }
 
   html {
-    background: none;
+    background: transparent;
+    min-height: 100%;
   }
 
   body {
-    @apply text-foreground tracking-[0.02em]; /* Updated to include bg-background */
-    background: transparent; /* Preserve existing background if it's meant to layer */
+    @apply text-foreground tracking-[0.02em];
+    background: transparent;
     background-color: transparent;
     @apply overflow-x-hidden;
+    min-height: 100%;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
-  h1,
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("/capyforest.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  h1 {
+    font-family: var(--font-display), system-ui, sans-serif;
+  }
+
+  h1 {
+    font-weight: 800;
+    color: var(--foreground);
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+  }
+
   h2,
   h3,
   h4,
   h5,
-  h6,
-  header,
-  nav,
-  button {
-    font-family: var(--font-dilo), system-ui, sans-serif;
-  }
-
-  h1 {
-    font-weight: 900;
-    color: #ffffff;
-    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.9);
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+  h6 {
+    font-family: var(--font-sans), system-ui, sans-serif;
   }
 
   h2 {
-    font-weight: 800;
-    color: #ffffff;
-    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.85);
-    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    font-weight: 700;
+    color: var(--foreground);
+    -webkit-text-stroke: 0;
+    text-shadow: none;
   }
 
   h3,
   h4,
   h5,
   h6 {
-    font-weight: 700;
-    color: #f5f5f5;
-    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+    font-weight: 600;
+    color: var(--foreground);
+    -webkit-text-stroke: 0;
+    text-shadow: none;
   }
 
   .hero-subtitle,
   .status-text,
   .center-info {
-    font-weight: 600;
-    color: #ffffff !important;
+    font-weight: 500;
+    color: var(--foreground) !important;
     -webkit-text-stroke: 0;
-    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.65);
-  }
-
-  .hero-subtitle.text-muted-foreground,
-  .status-text.text-muted-foreground,
-  .center-info.text-muted-foreground {
-    color: #ffffff !important;
+    text-shadow: none;
   }
 
   .glass,
   .glass-strong,
   [data-slot="card"] {
+    background-color: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     -webkit-text-stroke: 0;
-    color: #000000;
-    font-weight: 700;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
+    color: #111111;
+    font-weight: 600;
+    text-shadow: none;
   }
 
   [data-slot="card"] .text-muted-foreground,
   .glass .text-muted-foreground,
   .glass-strong .text-muted-foreground {
-    color: #111111 !important;
-    font-weight: 600;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
+    color: #4a4a4a !important;
+    font-weight: 500;
+    text-shadow: none;
   }
 
   p,
   span,
   li,
   small {
-    font-weight: 500;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    font-weight: 400;
+    text-shadow: none;
   }
 
   .text-muted-foreground {
-    color: #111111 !important;
-    font-weight: 600;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
+    color: #5f5f5f !important;
+    font-weight: 400;
+    text-shadow: none;
   }
 
   header,
@@ -296,57 +309,6 @@
 /* Remove text outline for specific elements */
 .no-text-outline {
   text-shadow: none;
-}
-
-/* Floating fireflies background */
-.fireflies {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.fireflies span {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: oklch(0.85 0.18 95 / 0.95);
-  box-shadow:
-    0 0 8px oklch(0.85 0.18 95 / 0.8),
-    0 0 16px oklch(0.85 0.18 95 / 0.5);
-  opacity: 0.3;
-  animation:
-    firefly-float 18s linear infinite,
-    firefly-flicker 2.8s ease-in-out infinite;
-}
-
-.fireflies span:nth-child(1) { top: 18%; left: 12%; animation-delay: 0s; }
-.fireflies span:nth-child(2) { top: 32%; left: 72%; animation-delay: -1.1s; }
-.fireflies span:nth-child(3) { top: 58%; left: 48%; animation-delay: -2.2s; }
-.fireflies span:nth-child(4) { top: 24%; left: 38%; animation-delay: -0.7s; }
-.fireflies span:nth-child(5) { top: 66%; left: 18%; animation-delay: -1.9s; }
-.fireflies span:nth-child(6) { top: 76%; left: 64%; animation-delay: -2.6s; }
-.fireflies span:nth-child(7) { top: 12%; left: 84%; animation-delay: -0.4s; }
-.fireflies span:nth-child(8) { top: 44%; left: 8%; animation-delay: -1.5s; }
-.fireflies span:nth-child(9) { top: 84%; left: 36%; animation-delay: -2.9s; }
-.fireflies span:nth-child(10) { top: 40%; left: 92%; animation-delay: -0.9s; }
-.fireflies span:nth-child(11) { top: 70%; left: 28%; animation-delay: -1.7s; }
-.fireflies span:nth-child(12) { top: 8%; left: 52%; animation-delay: -2.4s; }
-.fireflies span:nth-child(13) { top: 52%; left: 82%; animation-delay: -1.3s; }
-.fireflies span:nth-child(14) { top: 28%; left: 58%; animation-delay: -2.1s; }
-
-@keyframes firefly-float {
-  0% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(20px, -18px) scale(1.1); }
-  50% { transform: translate(-14px, 16px) scale(0.9); }
-  75% { transform: translate(10px, 26px) scale(1.05); }
-  100% { transform: translate(0, 0) scale(1); }
-}
-
-@keyframes firefly-flicker {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.85; }
 }
 
 /* Enhanced cursor glow with smoother gradient */
@@ -592,6 +554,20 @@
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient-shift 4s ease infinite;
+}
+
+/* NFT carousel: right-to-left marquee */
+@keyframes nft-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-nft-marquee {
+  animation: nft-marquee 40s linear infinite;
 }
 
 /* Stagger animation delays */

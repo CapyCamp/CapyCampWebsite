@@ -1,138 +1,50 @@
 "use client"
 
 import Link from "next/link"
-import { siteConfig, footerLinks } from "@/lib/capycamp-data"
+import { siteConfig } from "@/lib/capycamp-data"
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-white/10 border-t border-white/15 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold">
-                CC
-              </div>
-              <span className="font-space-grotesk font-bold text-foreground">CapyCamp</span>
-            </div>
-            <p className="text-sm text-muted-foreground">The Scout Universe on Abstract</p>
-            <div className="flex gap-4 mt-4">
-              <a
-                href={siteConfig.links.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Twitter
-              </a>
-              <a
-                href={siteConfig.links.discord}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Discord
-              </a>
-              <a
-                href={siteConfig.links.opensea}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                OpenSea
-              </a>
-            </div>
+    <footer className="border-t border-border bg-[#1b1b1b] text-white">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 py-8 sm:py-9">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
+            <img src="/branding/BWLOGO.png" alt="CapyCamp" className="h-6 w-auto" />
+            <span className="text-[11px] uppercase tracking-[0.35em] text-white/70">
+              CapyCamp
+            </span>
           </div>
-
-          {/* Explore */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Explore</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/story" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Story & Lore
-                </Link>
-              </li>
-              <li>
-                <Link href="/roadmap" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Roadmap
-                </Link>
-              </li>
-              <li>
-                <Link href="/glamping" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  IRL Glamping
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  FAQ
-                </Link>
-              </li>
-            </ul>
+          <div className="flex flex-wrap items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-white/70">
+            <Link href="/brand" className="hover:text-white">
+              Brand
+            </Link>
+            <Link href="/story" className="hover:text-white">
+              Story
+            </Link>
+            <Link href="/roadmap" className="hover:text-white">
+              Roadmap
+            </Link>
+            <Link href="/faq" className="hover:text-white">
+              FAQ
+            </Link>
+            <Link href="/terms" className="hover:text-white">
+              Terms
+            </Link>
+            <Link href="/privacy" className="hover:text-white">
+              Privacy
+            </Link>
           </div>
-
-          {/* Community */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Community</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/portal" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Holder Portal
-                </Link>
-              </li>
-              <li>
-                <a href={siteConfig.links.discord} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Discord
-                </a>
-              </li>
-              <li>
-                <a href={siteConfig.links.twitter} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <Link href="/brand" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Brand Kit
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/safety" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Safety Guide
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Terms
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Privacy
-                </Link>
-              </li>
-            </ul>
+          <div className="flex items-center gap-4 text-xs text-white/60">
+            <a href={siteConfig.links.twitter} target="_blank" rel="noopener noreferrer">
+              Twitter
+            </a>
+            <a href={siteConfig.links.discord} target="_blank" rel="noopener noreferrer">
+              Discord
+            </a>
           </div>
         </div>
-
-        {/* Bottom */}
-        <div className="pt-8 border-t border-border">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} CapyCamp. Not financial advice. DYOR.
-            </p>
-            <p className="text-xs text-muted-foreground">
-              Built on Abstract with ❤️ by Scouts
-            </p>
-          </div>
+        <div className="mt-6 text-[10px] uppercase tracking-[0.35em] text-white/50">
+          © 2026 CapyCamp. Not financial advice. Definitely not supervision.
         </div>
       </div>
     </footer>

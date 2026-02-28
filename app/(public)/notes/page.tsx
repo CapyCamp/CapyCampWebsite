@@ -1,14 +1,20 @@
-import { NotesPageContent } from "@/components/public/notes/notes-page-content";
-
-export const metadata = {
-  title: "Lab Notes | EinCode",
-  description: "Technical findings, observations, and thoughts from the workbench.",
-};
+import { SimplePage } from "@/components/fugz/simple-page"
 
 export default function NotesPage() {
   return (
-    <div className="pt-24">
-      <NotesPageContent />
-    </div>
-  );
+    <SimplePage
+      kicker="Notes"
+      title="Short dispatches from the camp."
+      subtitle="Quiet updates and working ideas, released when ready."
+      sections={[
+        {
+          title: "Latest",
+          items: [
+            { title: "Field Log", description: "Design decisions and drop rationale." },
+            { title: "Studio Notes", description: "Material tests, prototypes, and QA." },
+          ],
+        },
+      ]}
+    />
+  )
 }

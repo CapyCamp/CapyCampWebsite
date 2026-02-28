@@ -5,43 +5,30 @@ export default function NotFound() {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="max-w-2xl text-center">
         <div className="mb-8">
-          {/* 404 Glitch Effect */}
-          <h1 className="text-9xl font-bold mb-4 font-mono relative">
-            <span className="glitch inline-block">404</span>
+          <div className="text-[11px] font-bold uppercase tracking-[0.45em] text-foreground/70">
+            404
+          </div>
+          <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold text-foreground">
+            You wandered off the trail.
           </h1>
-          <div className="h-1 w-32 bg-primary mx-auto mb-8" />
-          <h2 className="text-3xl font-bold mb-4">Page Not Found</h2>
-          <p className="text-muted-foreground text-lg mb-2">
-            The page you're looking for doesn't exist or has been moved.
-          </p>
-          <p className="text-muted-foreground">
-            Let's get you back on track.
+          <p className="mt-4 text-foreground/70">
+            The campfire is that way. Try heading back before it gets dark.
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Link
             href="/"
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+            className="px-6 py-3 bg-[#121212] text-white rounded-full text-xs uppercase tracking-[0.35em] hover:bg-[#2a2a2a] transition-colors"
           >
-            Go Home
+            Back to Camp
           </Link>
           <Link
-            href="/blog"
-            className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors"
+            href="/story"
+            className="px-6 py-3 border border-border rounded-full text-xs uppercase tracking-[0.35em] text-foreground/70 hover:text-foreground transition-colors"
           >
-            Browse Blog
+            Read the Scout Code
           </Link>
-          <Link
-            href="/projects"
-            className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors"
-          >
-            View Projects
-          </Link>
-        </div>
-
-        <div className="text-sm text-muted-foreground font-mono">
-          <span className="text-primary">&gt;</span> Error code: 404_NOT_FOUND
         </div>
       </div>
     </div>

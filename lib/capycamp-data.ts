@@ -7,7 +7,7 @@ export const siteConfig = {
   url: "https://capycamp.xyz",
   ogImage: "/og-image.png",
   links: {
-    twitter: "https://twitter.com/capycampxyz",
+    twitter: "https://x.com/CapyCamp",
     discord: "https://discord.gg/capycamp",
     opensea: "https://opensea.io/collection/capycamp",
   },
@@ -19,6 +19,7 @@ export const navConfig = [
   { label: "Story", href: "/story" },
   { label: "Roadmap", href: "/roadmap" },
   { label: "FAQ", href: "/faq" },
+  { label: "WL Signup", href: "/wl-signup" },
 ]
 
 export const heroSection = {

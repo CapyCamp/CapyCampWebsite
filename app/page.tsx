@@ -1,255 +1,164 @@
 import SiteHeader from "@/components/capycamp-header"
 import SiteFooter from "@/components/capycamp-footer"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import Link from "next/link"
-import {
-  heroSection,
-  trustRow,
-  whatIsCapyCamp,
-  scoutPerks,
-  roadmapPhases,
-  irlGlamping,
-  siteConfig,
-} from "@/lib/capycamp-data"
-import { ArrowRight, Sparkles } from "lucide-react"
+import NftCarousel from "@/components/nft-carousel"
+import { PageGrid, PageHero, PageSection } from "@/components/fugz/page-shell"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
-      <main className="pt-16">
-        {/* Hero Section */}
-        <section className="relative min-h-[70vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black/30 via-black/20 to-black/30">
-          <div className="max-w-5xl w-full text-center space-y-6 sm:space-y-8 py-16 sm:py-20">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-primary/20 bg-primary/5">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-xs sm:text-sm font-medium text-primary">
-                Abstract Chain • 3,333 Scouts
+      <main className="pt-20">
+        <PageHero
+          kicker="CapyCampOfficial"
+          title="3,333 Scouts. Zero Supervision."
+          titleImage="/2374.png"
+          subtitle={
+            <>
+              <span className="block">Onchain membership. IRL energy.</span>
+              <span className="block">Leadership we’re still evaluating.</span>
+            </>
+          }
+          ctaLabel="Sneak Into the Camp →"
+          ctaHref="/wl-signup"
+          ctaHoverText="This is where it starts."
+          secondaryCtaLabel="Read the Scout Code"
+          secondaryCtaHref="/story"
+        />
+
+        <NftCarousel />
+
+        <PageSection
+          title="THE CAMP"
+          lead={
+            <>
+              <span className="block text-foreground/70 text-xs uppercase tracking-[0.35em]">
+                (No adults. We checked.)
               </span>
-            </div>
+              <span className="block mt-3">We’re building something real.</span>
+              <span className="block">We just refuse to look serious while doing it.</span>
+            </>
+          }
+        >
+          <PageGrid
+            items={[
+              { title: "SCOUT CULTURE", image: "/poses/1.png", description: (
+                  <>
+                    <span className="block">A small group of internet adults</span>
+                    <span className="block">with access to tools</span>
+                    <span className="block">and absolutely no supervision.</span>
+                    <span className="block">We thought this was fine.</span>
+                  </>
+                ) },
+              { title: "LORE-FIRST", image: "/poses/2.png", description: (
+                  <>
+                    <span className="block">There’s lore.</span>
+                    <span className="block">We will not be hosting a webinar about it.</span>
+                  </>
+                ) },
+              { title: "NO NOISE", image: "/poses/3.png", description: (
+                  <>
+                    <span className="block">No “gm” farming.</span>
+                    <span className="block">No fake countdown timers.</span>
+                    <span className="block">Just signal.</span>
+                  </>
+                ) },
+              { title: "PHYSICAL + DIGITAL", image: "/poses/4.png", description: (
+                  <>
+                    <span className="block">IRL energy.</span>
+                    <span className="block">Onchain proof.</span>
+                    <span className="block">Campfire debates that escalate fast.</span>
+                    <span className="block">Someone always brings charts.</span>
+                  </>
+                ) },
+            ]}
+          />
+        </PageSection>
 
-            {/* Title */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight text-outline-strong">
-              {heroSection.title}
-            </h1>
+        <PageSection
+          title="NO.CAP"
+          lead={
+            <>
+              <span className="block text-foreground/70 text-xs uppercase tracking-[0.35em]">
+                (Yes, we’re serious. Unfortunately.)
+              </span>
+              <span className="block mt-3">The part of CapyCamp your parents wouldn’t understand.</span>
+            </>
+          }
+        >
+          <PageGrid
+            items={[
+              { title: "STREETWEAR", image: "/poses/5.png", description: (
+                  <>
+                    <span className="block">Streetwear.</span>
+                    <span className="block">Artifacts.</span>
+                    <span className="block">Bad timing.</span>
+                  </>
+                ) },
+              { title: "ARTIFACTS", image: "/poses/6.png", description: (
+                  <>
+                    <span className="block">Objects with lore.</span>
+                    <span className="block">And emotional attachment issues.</span>
+                  </>
+                ) },
+              { title: "UNIFORM", image: "/poses/1.png", description: (
+                  <>
+                    <span className="block">Built for real life.</span>
+                    <span className="block">Quiet signal.</span>
+                    <span className="block">Loud personality.</span>
+                  </>
+                ) },
+              { title: "DROPS", image: "/poses/2.png", description: (
+                  <>
+                    <span className="block">Limited.</span>
+                    <span className="block">Mostly because we forgot to make more.</span>
+                  </>
+                ) },
+            ]}
+          />
+        </PageSection>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-outline-strong hero-subtitle">
-              {heroSection.subtitle}
-            </p>
-
-            {/* Trust Row */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 py-6 sm:py-8 px-4 rounded-xl bg-white/10 border border-white/15 backdrop-blur-md max-w-sm sm:max-w-none mx-auto">
-              <div className="text-center">
-                <div className="text-xs text-muted-foreground uppercase tracking-wide">Chain</div>
-                <div className="text-base sm:text-lg font-semibold text-foreground">{trustRow.chain}</div>
-              </div>
-              <div className="hidden sm:block w-px h-8 bg-border" />
-              <div className="text-center">
-                <div className="text-xs text-muted-foreground uppercase tracking-wide">Supply</div>
-                <div className="text-base sm:text-lg font-semibold text-foreground">{trustRow.supply}</div>
-              </div>
-              <div className="hidden sm:block w-px h-8 bg-border" />
-              <div className="text-center">
-                <div className="text-xs text-muted-foreground uppercase tracking-wide">Status</div>
-                <div className="text-base sm:text-lg font-semibold text-accent status-text">{trustRow.status}</div>
-              </div>
-            </div>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href={heroSection.ctaLink1}>
-                  {heroSection.cta1}
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href={heroSection.ctaLink2}>
-                  {heroSection.cta2}
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* What is CapyCamp */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">What is CapyCamp?</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Five pillars of the Scout universe.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {whatIsCapyCamp.map((item, idx) => (
-                <Card
-                  key={idx}
-                  className="p-6 bg-white/5 border-white/10 backdrop-blur-md hover:shadow-lg hover:border-primary/20 transition-all hover-lift"
-                >
-                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Scout Perks Preview */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/30">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Scout Perks</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                What you get as a Scout holder.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {scoutPerks.map((perk, idx) => (
-                <Card
-                  key={idx}
-                  className="p-8 bg-white/5 border-white/10 backdrop-blur-md hover:border-primary/30 transition-colors hover-lift"
-                >
-                  <div className="text-4xl mb-4">{perk.icon}</div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{perk.title}</h3>
-                  <p className="text-muted-foreground">{perk.description}</p>
-                </Card>
-              ))}
-            </div>
-
-            <div className="text-center mt-12">
-              <Button asChild size="lg" variant="outline">
-                <Link href="/mint">
-                  Mint a Scout Now
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Roadmap Preview */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Camp Phases</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Our roadmap from foundation to long-term IP evolution.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {roadmapPhases.slice(0, 4).map((phase, idx) => (
-                <Card
-                  key={idx}
-                  className="p-6 bg-white/5 border-white/10 backdrop-blur-md hover-lift"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground">{phase.title}</h3>
-                      <p className="text-sm text-muted-foreground">{phase.phase}</p>
-                    </div>
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        phase.status === "In Progress"
-                          ? "bg-accent/20 text-accent"
-                          : "bg-muted text-muted-foreground"
-                      }`}
-                    >
-                      {phase.status}
-                    </span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">{phase.description}</p>
-                </Card>
-              ))}
-            </div>
-
-            <div className="text-center mt-12">
-              <Button asChild size="lg" variant="outline">
-                <Link href="/roadmap">
-                  View Full Roadmap
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* IRL Glamping Preview */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black/20 to-black/30">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-2">{irlGlamping.title}</h2>
-              <p className="text-lg text-muted-foreground">{irlGlamping.subtitle}</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              {irlGlamping.formats.map((format, idx) => (
-                <Card
-                  key={idx}
-                  className="p-8 bg-white/5 border-white/10 backdrop-blur-md hover-lift"
-                >
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{format.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{format.description}</p>
-                  <div className="space-y-2 text-xs text-muted-foreground">
-                    <div>📍 {format.location}</div>
-                    <div>👥 {format.capacity}</div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-
-            <div className="text-center">
-              <Button asChild size="lg" variant="outline">
-                <Link href="/glamping">
-                  Explore IRL Experiences
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Community CTA */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary/5 to-black/20">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">Join the Troop</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Be part of the Scout universe. Connect with our community, stay updated on mint, and explore what CapyCamp is building.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-muted text-muted-foreground border border-muted cursor-not-allowed opacity-60 pointer-events-none"
-              >
-                <a
-                  href={siteConfig.links.discord}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-disabled="true"
-                  tabIndex={-1}
-                >
-                  Join Discord
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <a href={siteConfig.links.twitter} target="_blank" rel="noopener noreferrer">
-                  Follow Twitter
-                </a>
-              </Button>
-            </div>
-          </div>
-        </section>
+        <PageSection
+          title="SCOUT SYSTEM"
+          lead={
+            <span className="block text-foreground/70 text-xs uppercase tracking-[0.35em]">
+              Reputation &gt; “like &amp; retweet”
+            </span>
+          }
+        >
+          <PageGrid
+            items={[
+              { title: "ENTRY", image: "/poses/3.png", description: (
+                  <>
+                    <span className="block">Whitelist isn’t a raffle.</span>
+                    <span className="block">It’s a vibe check.</span>
+                    <span className="block">We can’t explain it.</span>
+                    <span className="block">We just know.</span>
+                  </>
+                ) },
+              { title: "ROLES", image: "/poses/4.png", description: (
+                  <>
+                    <span className="block">Badges reflect real participation.</span>
+                    <span className="block">Not copy-pasted enthusiasm.</span>
+                  </>
+                ) },
+              { title: "IRL", image: "/poses/5.png", description: (
+                  <>
+                    <span className="block">Pop-ups.</span>
+                    <span className="block">Retreats.</span>
+                    <span className="block">At least one poorly planned group photo.</span>
+                  </>
+                ) },
+              { title: "LONG GAME", image: "/poses/6.png", description: (
+                  <>
+                    <span className="block">We ship slowly.</span>
+                    <span className="block">Because we argue first.</span>
+                    <span className="block">Then we build it anyway.</span>
+                  </>
+                ) },
+            ]}
+          />
+        </PageSection>
       </main>
-
       <SiteFooter />
     </div>
   )

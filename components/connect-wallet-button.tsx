@@ -1,9 +1,12 @@
 "use client"
 
 import { useLoginWithAbstract } from "@abstract-foundation/agw-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { formatEther } from "viem"
 import { useAccount, useBalance } from "wagmi"
 import { type ClassValue } from "clsx"
+import { chain } from "@/config/chain"
+import { publicClient } from "@/config/viem-clients"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -23,11 +26,34 @@ export function ConnectWalletButton({
   className,
   customDropdownItems,
 }: ConnectWalletButtonProps) {
-  const { isConnected, status, address } = useAccount()
-  const { data: balance, isLoading: isBalanceLoading } = useBalance({ address })
+  const { isConnected, status, address, chainId: connectedChainId } = useAccount()
+  const { data: balance, isLoading: isBalanceLoading } = useBalance({
+    address,
+    chainId: connectedChainId ?? chain.id,
+  })
   const { login, logout } = useLoginWithAbstract()
   const isConnecting = status === "connecting" || status === "reconnecting"
   const [copied, setCopied] = useState(false)
+  const [fallbackBalance, setFallbackBalance] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!address) {
+      setFallbackBalance(null)
+      return
+    }
+    let cancelled = false
+    publicClient
+      .getBalance({ address })
+      .then((wei) => {
+        if (!cancelled) setFallbackBalance(formatEther(wei))
+      })
+      .catch(() => {
+        if (!cancelled) setFallbackBalance(null)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [address])
 
   const copyAddress = async () => {
     if (address) {
@@ -49,7 +75,7 @@ export function ConnectWalletButton({
   if (!isConnected) {
     return (
       <Button onClick={login} className={cn("cursor-pointer group min-w-40", className)}>
-        Connect Wallet
+        Connect AGW
         <AbstractLogo className="ml-2 group-hover:animate-spin transition-transform" />
       </Button>
     )
@@ -65,9 +91,24 @@ export function ConnectWalletButton({
     )
   }
 
-  const formattedBalance = balance
-    ? `${parseFloat(balance.formatted).toFixed(4)} ${balance.symbol}`
-    : "0.0000 ETH"
+  const symbol = balance?.symbol ?? "ETH"
+  let value = "0.0000"
+  if (balance) {
+    if (balance.formatted != null && balance.formatted !== "") {
+      const raw = Number(balance.formatted)
+      value = Number.isFinite(raw) ? raw.toFixed(4) : "0.0000"
+    } else if (balance.value != null && balance.decimals != null) {
+      const divisor = 10 ** balance.decimals
+      const raw = Number(balance.value) / divisor
+      value = Number.isFinite(raw) ? raw.toFixed(4) : "0.0000"
+    }
+  }
+  const fallbackNum = fallbackBalance != null ? Number(fallbackBalance) : NaN
+  const useFallback =
+    (value === "0.0000" || !balance?.formatted) &&
+    Number.isFinite(fallbackNum)
+  const displayValue = useFallback ? fallbackNum.toFixed(4) : value
+  const formattedBalance = `${displayValue} ${symbol}`
 
   return (
     <DropdownMenu>
