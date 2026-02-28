@@ -19,7 +19,6 @@ export const navConfig = [
   { label: "Story", href: "/story" },
   { label: "Roadmap", href: "/roadmap" },
   { label: "FAQ", href: "/faq" },
-  { label: "WL Signup", href: "/wl-signup" },
 ]
 
 export const heroSection = {

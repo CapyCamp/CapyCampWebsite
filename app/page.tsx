@@ -18,11 +18,11 @@ export default function HomePage() {
               <span className="block">Leadership we’re still evaluating.</span>
             </>
           }
-          ctaLabel="Sneak Into the Camp →"
-          ctaHref="/wl-signup"
-          ctaHoverText="This is where it starts."
-          secondaryCtaLabel="Read the Scout Code"
-          secondaryCtaHref="/story"
+          ctaLabel="Read the Scout Code"
+          ctaHref="/story"
+          ctaHoverText="The lore is the product."
+          secondaryCtaLabel="See the Roadmap"
+          secondaryCtaHref="/roadmap"
         />
 
         <NftCarousel />
