@@ -8,7 +8,7 @@ export const siteConfig = {
   ogImage: "/og-image.png",
   links: {
     twitter: "https://x.com/CapyCamp",
-    discord: "https://discord.gg/capycamp",
+  discord: "https://discord.gg/NrNRRpgRxJ",
     opensea: "https://opensea.io/collection/capycamp",
   },
 }

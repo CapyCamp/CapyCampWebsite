@@ -38,9 +38,9 @@ export default function SiteFooter() {
             <a href={siteConfig.links.twitter} target="_blank" rel="noopener noreferrer">
               Twitter
             </a>
-            <a href={siteConfig.links.discord} target="_blank" rel="noopener noreferrer">
+            <span className="cursor-not-allowed text-white/40" aria-disabled="true" title="Discord coming soon">
               Discord
-            </a>
+            </span>
           </div>
         </div>
         <div className="mt-6 text-[10px] uppercase tracking-[0.35em] text-white/50">
